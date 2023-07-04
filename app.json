@@ -1,0 +1,7 @@
+{
+  "name": "JoinStoriesRNDemoApp",
+  "displayName": "JoinStoriesRNDemoApp",
+  "plugins": [
+    "expo-router"
+  ]
+}
