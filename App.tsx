@@ -7,7 +7,7 @@
 
 import { useEffect } from "react";
 import { Dimensions, StyleSheet, Text, TouchableOpacity, SafeAreaView } from "react-native";
-import { JoinStories, JoinStoriesView  } from "@join-stories/test-react-native-widgets";
+import { JoinStories, JoinStoriesView  } from "@join-stories/react-native-widgets";
 
 function App() {
 
