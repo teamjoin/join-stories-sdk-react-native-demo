@@ -10,7 +10,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "@join-stories/react-native-widgets": "^1.0.0",
+    "@join-stories/react-native-widgets": "^1.1.0",
     "expo": ">=49.0.0-0 <50.0.0",
     "expo-constants": "~14.4.2",
     "expo-linking": "~5.0.2",

@@ -6,12 +6,10 @@
  */
 
 import { useEffect } from "react";
-import { Dimensions, Platform, StyleSheet, Text, TouchableOpacity, View, SafeAreaView } from "react-native";
-import { JoinStories, JoinStoriesView  } from "@join-stories/react-native-widgets";
+import { Dimensions, StyleSheet, Text, TouchableOpacity, SafeAreaView } from "react-native";
+import { JoinStories, JoinStoriesView  } from "@join-stories/test-react-native-widgets";
 
 function App() {
-
-  let font = Platform.OS === 'ios' ? "Roboto" : "Arial"
 
   const init = () => {
     JoinStories.init("join-showcase");
@@ -74,8 +72,6 @@ function App() {
   return (
     <>
       <SafeAreaView style={styles.container}>
-        <View style={styles.container}>
-
         <JoinStoriesView
             alias="widget-sdk-test-thumb"
             requestTimeoutInterval={15}
@@ -93,7 +89,7 @@ function App() {
             playerBackgroundColor="#00AA0033"
             playerVerticalAnchor="bottom"
             playerShowShareButton={false}
-            playerClosingButton={false}
+            playerClosingButton={true}
             playerHorizontalMargins={10}
             playerCornerRadius={30}
             playerProgressBarDefaultColor="#FFFFFF"
@@ -103,35 +99,34 @@ function App() {
             containerDimension={150}
             style={styles.joinStoriesView}
           />
-            <JoinStoriesView
-              alias="widget-sdk-test-standalone"
-              requestTimeoutInterval={15}
-              fontName={font}
-              withLabel={false}
-              loaderInnerViewWidth={2}
-              loaderInnerViewColor={["#000000"]}
-              loaderColors={["#FF0000", "#0000FF"]}
-              loaderWidth={3}
-              storyViewedIndicatorColor="#808080"
-              storyViewedIndicatorAlpha={0.8}
-              thumbViewOverlayColor="#4C4C4CBB"
-              playerBackgroundColor="#330000AA"
-              playerVerticalAnchor="center"
-              playerShowShareButton={true}
-              playerHorizontalMargins={10}
-              playerCornerRadius={30}
-              playerProgressBarDefaultColor="#FFFFFF"
-              playerProgressBarFillColor="#026EDA"
-              playerProgressBarThickness={4}
-              playerProgressBarRadius={8}
-              containerDimension={150}
-              style={styles.joinStoriesView}
-            />
+
+          <JoinStoriesView
+            alias="widget-sdk-test-standalone"
+            requestTimeoutInterval={15}
+            withLabel={false}
+            loaderInnerViewWidth={2}
+            loaderInnerViewColor={["#000000"]}
+            loaderColors={["#FF0000", "#0000FF"]}
+            loaderWidth={3}
+            storyViewedIndicatorColor="#808080"
+            storyViewedIndicatorAlpha={0.8}
+            thumbViewOverlayColor="#4C4C4CBB"
+            playerBackgroundColor="#330000AA"
+            playerVerticalAnchor="center"
+            playerShowShareButton={true}
+            playerHorizontalMargins={10}
+            playerCornerRadius={30}
+            playerProgressBarDefaultColor="#FFFFFF"
+            playerProgressBarFillColor="#026EDA"
+            playerProgressBarThickness={4}
+            playerProgressBarRadius={8}
+            containerDimension={150}
+            style={styles.joinStoriesView}
+          />
         
         <TouchableOpacity onPress={startStandAlonePlayer} style={styles.button}>
           <Text>StandaloneView</Text>
         </TouchableOpacity>
-        </View>
       </SafeAreaView>
     </>
   );
