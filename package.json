@@ -7,10 +7,11 @@
     "ios": "react-native run-ios",
     "lint": "eslint .",
     "start": "react-native start",
-    "test": "jest"
+    "test": "jest",
+    "clean": "rm -fr android/build android/app/build ios/build ios/Podfile.lock & rm -rf node_modules package-lock.json;"
   },
   "dependencies": {
-    "@join-stories/react-native-widgets": "^1.1.2",
+    "@join-stories/react-native-widgets": "^1.3.0",
     "expo": ">=49.0.0-0 <50.0.0",
     "expo-constants": "~14.4.2",
     "expo-linking": "~5.0.2",
