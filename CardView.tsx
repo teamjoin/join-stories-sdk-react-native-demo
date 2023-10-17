@@ -9,33 +9,34 @@ import { useEffect } from "react";
 import { Dimensions, StyleSheet, Text, TouchableOpacity, SafeAreaView, View, ScrollView } from "react-native";
 import { JoinStories, JoinStoriesView, JoinStoriesCardView } from "@join-stories/react-native-widgets";
 
-function App() {
+export default function CardView() {
 
   useEffect(() => {
 
-    /**
-     * Four listener available :
-     *  - onStoryLoaded : launched when player is loaded
-     *  - onStoryFetchError : event received when we have an issue from request
-     *  - onStoryFetchEmpty : received empty stories
-     *  - onStoryDismissed : player dismissed. Two state available : auto and manual
-     */
-    const playerListener = JoinStories.addPlayerListener(({listener: newListener, state: newState}) => {
-      switch(newListener) {
-        case "onStoryLoaded": {
-          console.log("story loaded")
+    const playerListener = JoinStories.addPlayerListener((event: PlayerEvent) => {
+      switch (event.listener) {
+        case 'onStoryLoaded': {
+          console.log('story loaded');
           break;
         }
-        case "onStoryFetchError": {
-          console.log("fetch error")
+        case 'onStoryFetchError': {
+          console.log('fetch error');
           break;
         }
-        case "onStoryFetchEmpty": {
-          console.log("fetch empty")
+        case 'onStoryFetchEmpty': {
+          console.log('fetch empty');
           break;
         }
-        case "onStoryDismissed": {
-          console.log("story dismissed:", newState)
+        case 'onStoryDismissed': {
+          console.log('story dismissed:', event.state);
+          break;
+        }
+        case 'onStoryFetchSuccess': {
+          console.log('story fetch success:');
+          break;
+        }
+        case 'onStoryLinkClick': {
+          console.log('story link :', event.link);
           break;
         }
       }
@@ -43,8 +44,8 @@ function App() {
 
     return () => {
       playerListener.remove();
-    }
-  });
+    };
+  }, []);
 
   const startStandAlonePlayer = () => {
     JoinStories.startStandAlonePlayer({
@@ -124,5 +125,3 @@ function App() {
   );
 
 }
-
-export default App;
